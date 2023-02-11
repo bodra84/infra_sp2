@@ -37,26 +37,44 @@ YaMDB отправляет письмо с кодом подтверждения
 Пользователь отправляет POST-запрос с параметрами email и confirmation_code на `/api/v1/auth/token/`, в ответе на запрос ему приходит token (JWT-токен).
 Эти операции выполняются один раз, при регистрации пользователя. В результате пользователь получает токен и может работать с API, отправляя этот токен с каждым запросом.
 
+# Шаблон наполнения env-файла:
+**DB_ENGINE** - укажите, что используете postgresql (django.db.backends.postgresql).
+
+**DB_NAME** - имя базы данных.
+
+**POSTGRES_USER** - логин для подключения к базе данных.
+
+**POSTGRES_PASSWORD** - пароль для подключения к БД (установите свой).
+
+**DB_HOST** - название сервиса (по умолчанию "db").
+
+**DB_PORT** - порт для подключения к БД (по умолчанию "5432").
+
 # Установка проекта:
-Cоздать и активировать виртуальное окружение: 
+1.Запустить сборку и запуск контейнеров:
+```sh
+docker-compose up -d --build
+```
+2.Выполнить миграции:
+```sh
+docker-compose exec web python manage.py makemigrations
+docker-compose exec web python manage.py migrate
+```
+3.Выполнить сбор статических файлов:
+```sh
+docker-compose exec web python manage.py collectstatic --no-input
+```
+4.Создать суперпользователя (при необходимости):
+```sh
+docker-compose exec web python manage.py createsuperuser
+```
+5.Заполнить базу данных из файла **fixtures.json** (при необходимости):
 
-python -m venv venv 
-
-source venv/bin/activate 
-
-Установить зависимости из файла requirements.txt: 
-
-python3 -m pip install --upgrade pip 
-
-pip install -r requirements.txt 
-
-Выполнить миграции: 
-
-python manage.py migrate 
-
-**Запуск проекта:**
-
-python manage.py runserver
+Перейдите в директорию infra_sp2\infra\ и выполните команду
+```sh
+docker-compose exec web python manage.py loaddata fixtures.json
+```
+**Поздравляю, проект готов к работе!**
 
 **Пример:**
 
@@ -70,16 +88,21 @@ python manage.py runserver
 
 Python
 
-Git
-
 Django REST Framework
 
 Django ORM
 
-SQLite
-
 REST API
 
+Gunicorn
+
+NGINX
+
+PostgreSQL
+
+Git
+
+Docker
 # Авторы:
 
 Вадим Белозеров
