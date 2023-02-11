@@ -79,7 +79,7 @@ docker-compose exec web python manage.py loaddata fixtures.json
 **Пример:**
 
 Для доступа к API необходимо получить токен:
-Нужно выполнить POST-запрос localhost:8000/api/v1/auth/jwt/create/ передав поля username и password. API вернет JWT-токен
+Нужно выполнить POST-запрос http://localhost/api/v1/auth/jwt/create/ передав поля username и password. API вернет JWT-токен
 Дальше, передав токен можно будет обращаться к методам, например:
 /api/v1/posts/ (GET, POST, PUT, PATCH, DELETE)
 При отправке запроса передавайте токен в заголовке Authorization: Bearer <токен>
