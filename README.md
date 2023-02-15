@@ -82,8 +82,7 @@ docker-compose exec web python manage.py collectstatic --no-input
 docker-compose exec web python manage.py createsuperuser
 ```
 5.Заполнить базу данных из файла **fixtures.json** (при необходимости):
-
-Перейдите в директорию infra_sp2\infra\ и выполните команду
+Скопируйте файл fixtures.json в контейнер web в папку "api_yambd" и выполните команду для заполнения БД
 ```sh
 docker-compose exec web python manage.py loaddata fixtures.json
 ```
