@@ -15,6 +15,7 @@
 - Gunicorn
 - Docker
 
+
 **Ресурсы API YaMDb:**
 
 **AUTH**: аутентификация.
