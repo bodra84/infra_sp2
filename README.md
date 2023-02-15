@@ -8,6 +8,7 @@
 ### Технологии
 - Python  
 - Django REST framework 
+- Django ORM
 - REST API 
 - PostgreSQL
 - Nginx 
@@ -96,29 +97,11 @@ docker-compose exec web python manage.py loaddata fixtures.json
 /api/v1/posts/ (GET, POST, PUT, PATCH, DELETE)
 При отправке запроса передавайте токен в заголовке Authorization: Bearer <токен>
 
-# В проекте применены технологии:
-
-Python
-
-Django REST Framework
-
-Django ORM
-
-REST API
-
-Gunicorn
-
-NGINX
-
-PostgreSQL
-
-Git
-
-Docker
 # Авторы:
 
 Вадим Белозеров
 
 Давлат Файзиев
+e-mail: bodra84@gmail.com
 
 Алена Котова
