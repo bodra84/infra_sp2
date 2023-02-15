@@ -99,10 +99,10 @@ docker-compose exec web python manage.py loaddata fixtures.json
 
 # Авторы:
 
-Вадим Белозеров
+-Вадим Белозеров
 
-Давлат Файзиев
+-Давлат Файзиев
 
 e-mail: bodra84@gmail.com
 
-Алена Котова
+-Алена Котова
